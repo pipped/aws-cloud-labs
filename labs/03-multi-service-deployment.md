@@ -49,3 +49,11 @@ Reviewed and created a managed file system:
 - When to use **DynamoDB vs RDS**: DynamoDB for simple, high-scale key lookups, RDS for relational queries and joins.
 - **FSx for ONTAP** brings enterprise NAS features (NFS/SMB, snapshots, replication) to AWS, and Multi-AZ gives it automatic failover.
 - Checking which settings are **editable after creation** (deployment type and HA pairs aren't) before clicking Create.
+
+## Screenshots
+
+| | |
+|---|---|
+| **EC2 instance running**<br>![EC2](../images/l3-ec2.png) | **Network Load Balancer provisioning**<br>![NLB](../images/l3-nlb.png) |
+| **DynamoDB `CustomerData` table**<br>![DynamoDB](../images/l3-dynamodb.png) | **S3 bucket**<br>![S3](../images/l3-s3.png) |
+| **IAM role with S3 as the trusted service**<br>![IAM role](../images/l3-iam-role.png) | **FSx for NetApp ONTAP review**<br>![FSx](../images/l3-fsx.png) |

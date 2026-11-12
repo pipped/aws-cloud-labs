@@ -51,3 +51,11 @@ AWS warns about `0.0.0.0/0`. That's acceptable for HTTPS on a public site, but n
 - Splitting identities by role is the first step toward least privilege. The next step would be IAM **groups** with scoped policies, so permissions aren't attached to individual users.
 - Restricting SSH to a single `/32` closes the most common attack path on a new EC2 instance.
 - A Multi-AZ **cluster** (one writer, two readers) gives faster failover and read scaling than a classic Multi-AZ **instance**, which has only a passive standby.
+
+## Screenshots
+
+| | |
+|---|---|
+| **IAM users per role**<br>![IAM users](../images/l1-iam-users.png) | **Default service-linked roles**<br>![IAM roles](../images/l1-iam-roles.png) |
+| **MFA with an authenticator app**<br>![MFA](../images/l1-mfa.png) | **Security group: SSH from my IP, HTTPS public**<br>![Security group](../images/l1-sg.png) |
+| **EC2 instance running**<br>![EC2](../images/l1-ec2.png) | **Multi-AZ RDS cluster (1 writer, 2 readers)**<br>![RDS](../images/l1-rds.png) |

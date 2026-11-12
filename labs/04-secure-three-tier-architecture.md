@@ -118,3 +118,16 @@ This gives the office an encrypted IPsec tunnel into the VPC, so admin traffic n
 - Chaining security groups is cleaner and safer than hard-coding IP ranges.
 - Spreading across **three AZs** with a single NAT gateway is a cost trade-off. In production, use one NAT per AZ so losing an AZ doesn't cut off outbound traffic.
 - Backups are only useful if you **test the restores**, which is the next step for this lab.
+
+## Screenshots
+
+**3-AZ VPC with NAT gateway and S3 endpoint**
+![VPC](../images/l4-vpc.png)
+
+| | |
+|---|---|
+| **Web Tier security group**<br>![Web SG](../images/l4-web-sg.png) | **App Tier security group (references another SG)**<br>![App SG](../images/l4-app-sg.png) |
+| **Service-linked roles for ELB and RDS**<br>![IAM roles](../images/l4-iam-roles.png) | **MFA with a passkey/security key**<br>![MFA](../images/l4-mfa.png) |
+| **WAF web ACL `EVILWAF`**<br>![WAF](../images/l4-waf.png) | **RDS MySQL settings**<br>![RDS](../images/l4-rds.png) |
+| **Route 53 domain search**<br>![Route 53](../images/l4-route53.png) | **AWS Backup plan (35-day retention)**<br>![Backup](../images/l4-backup.png) |
+| **Site-to-Site VPN (BGP)**<br>![VPN](../images/l4-vpn.png) | |

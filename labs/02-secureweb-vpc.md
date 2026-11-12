@@ -107,3 +107,18 @@ While testing, only my own IP can reach the site and SSH.
 - A **gateway endpoint for S3** is free and keeps S3 traffic on the AWS network, so private subnets don't need a NAT gateway just to reach S3.
 - **IAM roles beat access keys** on EC2: the credentials rotate automatically and there's nothing on disk to leak.
 - An ASG with min = max = 1 still adds value as **automatic recovery**, even when you aren't scaling out.
+
+## Screenshots
+
+**VPC wizard preview: subnets, route tables, IGW and S3 endpoint**
+![Create VPC](../images/l2-create-vpc.png)
+
+**Every resource the VPC workflow created**
+![VPC workflow](../images/l2-vpc-workflow.png)
+
+| | |
+|---|---|
+| **EC2 instance launching**<br>![EC2](../images/l2-ec2.png) | **Security group inbound rules**<br>![SG](../images/l2-sg.png) |
+| **ASG launch options in SecureWeb-vpc**<br>![ASG launch](../images/l2-asg-launch.png) | **SecureWeb-ASG across 2 AZs**<br>![ASG](../images/l2-asg.png) |
+| **RDS MySQL instance creating**<br>![RDS](../images/l2-rds.png) | **IAM role `Webec2` trust policy**<br>![IAM role](../images/l2-iam-role.png) |
+| **Attaching the role to the instance**<br>![Attach role](../images/l2-attach-role.png) | **CloudWatch CPU alarm on the ASG**<br>![CloudWatch](../images/l2-cloudwatch.png) |

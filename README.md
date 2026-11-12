@@ -57,5 +57,5 @@ flowchart TB
 
 ## Notes
 
-- Account IDs, resource IDs, public IPs and personal details have been left out on purpose.
+- The screenshots come from a college lab account. The resource IDs and IPs in them belong to lab resources that no longer exist.
 - These were learning environments, not production systems.
