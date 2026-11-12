@@ -73,7 +73,7 @@ The **NAT gateway** lets private instances reach the internet for patches withou
 | Outbound | All traffic | All | 0.0.0.0/0 |
 | Outbound | Custom TCP | — | **Another security group (by SG ID)** |
 
-Referencing a **security group ID** instead of a CIDR means the rule follows the instances as they scale, with no IP lists to keep updated.
+Referencing a **security group ID** instead of a CIDR is the same pattern as `sg-web` → `sg-app` in [Lab 5](05-two-tier-security-lab.md). [security-analysis.md › SG-to-SG referencing](../docs/security-analysis.md#sg-to-sg-referencing-vs-cidr) covers why it's safer.
 
 ### 3. IAM & MFA
 - Reviewed the service-linked roles AWS created for **Elastic Load Balancing** and **RDS**.

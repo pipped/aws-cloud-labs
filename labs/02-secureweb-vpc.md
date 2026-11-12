@@ -80,20 +80,7 @@ While testing, only my own IP can reach the site and SSH.
 - Created **`rdssv`**, a **MySQL Community** instance on **db.t4g.micro** (Graviton, free-tier eligible).
 
 ### 6. IAM role for EC2
-- Created role **`Webec2`** with this trust policy, so EC2 can assume it:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": ["sts:AssumeRole"],
-      "Principal": { "Service": ["ec2.amazonaws.com"] }
-    }
-  ]
-}
-```
+- Created role **`Webec2`** with the standard EC2 trust policy (`sts:AssumeRole` for `ec2.amazonaws.com`), the same one saved in [`aws/iam/ec2-trust-policy.json`](../aws/iam/ec2-trust-policy.json) and used in [Lab 5](05-two-tier-security-lab.md). [security-analysis.md](../docs/security-analysis.md) explains why the trust scope matters.
 
 - Attached it to the instance with **Modify IAM role**. The app gets temporary credentials from the instance metadata service, so no access keys are stored on the server.
 
@@ -104,7 +91,7 @@ While testing, only my own IP can reach the site and SSH.
 
 ## What I learned
 - The "VPC and more" wizard is a quick way to see how subnets, route tables, the IGW and endpoints depend on each other. The [Terraform version](../terraform/secureweb-vpc/) shows the same wiring written out in code.
-- A **gateway endpoint for S3** is free and keeps S3 traffic on the AWS network, so private subnets don't need a NAT gateway just to reach S3.
+- A **gateway endpoint for S3** is free and keeps S3 traffic on the AWS network, so private subnets don't need a NAT gateway just to reach S3. [vpc.md › VPC Endpoints](../docs/vpc.md#vpc-endpoints) has the details, and [s3-security.md](../docs/s3-security.md) shows how to lock a bucket to the endpoint.
 - **IAM roles beat access keys** on EC2: the credentials rotate automatically and there's nothing on disk to leak.
 - An ASG with min = max = 1 still adds value as **automatic recovery**, even when you aren't scaling out.
 
