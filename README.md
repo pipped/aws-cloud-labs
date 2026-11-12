@@ -57,5 +57,5 @@ flowchart TB
 
 ## Notes
 
-- The screenshots come from a college lab account. The resource IDs and IPs in them belong to lab resources that no longer exist.
+- The screenshots come from a college lab environment. The resource IDs and IPs in them belong to that lab, not to production systems.
 - These were learning environments, not production systems.
